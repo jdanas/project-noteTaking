@@ -5,9 +5,18 @@ import { addAction, deleteAction, editAction } from "../../reducer/notes";
 
 // this component can be used to viewing, writting or editting notes
 export default function NoteDetail(PROPS) {
+
   const { NotesDispatch, notesList } = useContext(NotesContext);
+
+  const [note, setNote] = useState({});
+
   useEffect(() => {
     console.log(notesList);
+    notesList.filter((note) => {
+      if (note.id === PROPS.id) {
+        console.log(note);
+      }
+    });
   }, [notesList]);
 
   return (
@@ -19,7 +28,7 @@ export default function NoteDetail(PROPS) {
             type="text"
             placeholder="Enter Note Title Here!"
             size="50"
-            value={PROPS.title}
+            value={note?.title}
           />
         </div>
         <div class="dateContainer">
@@ -29,7 +38,7 @@ export default function NoteDetail(PROPS) {
       <div class="noteDetails">
         <div class="noteContent">
           <textarea placeholder="Enter your Note Here!" class="contentInput">
-            {PROPS.content}
+            {note?.content}
           </textarea>
         </div>
         <button

@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import NoteDetail from "../../components/NoteDetail/NoteDetail";
 import NoteList from "../../components/NoteList/NoteList";
 import "./MainPage.css";
