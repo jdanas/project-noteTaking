@@ -11,12 +11,13 @@ export default function NoteDetail(PROPS) {
   const [note, setNote] = useState({});
 
   useEffect(() => {
-    console.log(notesList);
-    notesList.filter((note) => {
-      if (note.id === PROPS.id) {
-        console.log(note);
+    
+    setNote(notesList.find((note) => {
+      if(note.id === PROPS.id){
+        return note;
       }
-    });
+    }));
+    
   }, [notesList]);
 
   return (
@@ -37,8 +38,8 @@ export default function NoteDetail(PROPS) {
       </div>
       <div class="noteDetails">
         <div class="noteContent">
-          <textarea placeholder="Enter your Note Here!" class="contentInput">
-            {note?.content}
+          <textarea placeholder="Enter your Note Here!" class="contentInput" value={note?.content} >
+            
           </textarea>
         </div>
         <button
