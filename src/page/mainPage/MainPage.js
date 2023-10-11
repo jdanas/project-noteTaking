@@ -5,7 +5,7 @@ import NoteList from "../../components/NoteList/NoteList";
 import "./MainPage.css";
 
 function MainPage() {
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(1);
   const noteChange = (id) => {
     setId(id);
   };
