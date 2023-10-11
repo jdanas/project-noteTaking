@@ -1,1 +1,34 @@
-/* This is where your note list CSS will go **/
+.note {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #000;
+    padding-right: 20px;
+}
+
+
+.notesHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    flex-direction: flex-start;
+}
+
+.notesList li{
+    cursor: pointer; /* add this line to make the note clickable */
+    padding: 10px 0px ;
+}
