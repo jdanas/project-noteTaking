@@ -24,10 +24,8 @@ export function notesReducer(state, action) {
     case FETCH:
       return state;
     case ADD:
-      state.push(action.payload);
-      return state;
+      return [...state, action.payload];
     case EDIT:
-      console.log('edit', state);
       return state.map(note => {
         if (note.id === action.payload.id) {
           return action.payload;
