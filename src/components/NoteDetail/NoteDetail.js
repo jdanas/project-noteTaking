@@ -17,8 +17,9 @@ export default function NoteDetail(PROPS) {
         return note;
       }
     }));
+    console.log(PROPS.id)
     
-  }, [notesList]);
+  }, [PROPS?.id]);
 
   return (
     <div class="detailContainer">
@@ -45,15 +46,14 @@ export default function NoteDetail(PROPS) {
         <button
           class="editBtn"
           onClick={() => {
-            console.log("edit button clicked");
+            const handleEdit = () => {
+              NotesDispatch(editAction(note));
+            };
           }}
         >
           Save
         </button>
       </div>
     </div>
-
-    
-    
   );
 }

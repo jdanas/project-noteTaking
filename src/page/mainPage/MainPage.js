@@ -5,7 +5,7 @@ import NoteList from "../../components/NoteList/NoteList";
 import "./MainPage.css";
 
 function MainPage() {
-  const [id, setId] = useState(1);
+  const [id, setId] = useState(false);
   const noteChange = (id) => {
     setId(id);
   };
@@ -20,7 +20,7 @@ function MainPage() {
   return (
     <div className="mainContainer">
       <NoteList noteChange={noteChange} handleAddNote={handleAddNote} />
-      {showForm && <NoteDetail id={id} />}
+      {showForm || id !== false && <NoteDetail id={id} />}
     </div>
   );
 }

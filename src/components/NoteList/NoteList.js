@@ -10,7 +10,10 @@ export default function NoteList({modeChange, noteChange, handleAddNote}) {
   return (
     <div className="listContainer">
       <h2 className="notesHeader">Notes</h2>
-      <button onClick={handleAddNote}>Add Note</button>
+      <button onClick={()=>{
+        handleAddNote();
+        noteChange(true);
+      }}>Add Note</button>
       <ul className="notesList">
         {notesList.map((note) => (
           <li key={note.id} onClick={() => noteChange(note.id)} >

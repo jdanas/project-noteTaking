@@ -57,6 +57,7 @@ export const addAction = (note) => {
 };
 
 export function editAction() {
+  
   return {
     type: EDIT,
     payload: {},
