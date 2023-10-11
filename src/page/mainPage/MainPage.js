@@ -4,12 +4,15 @@ import NoteList from "../../components/NoteList/NoteList";
 import "./MainPage.css";
 
 function MainPage() {
-
+  const [id, setId] = useState(0);
+  const noteChange = (id) => {
+    setId(id);
+  };
 
   return (
     <div className="mainContainer">
-      <NoteList />
-      <NoteDetail />
+      <NoteList noteChange={noteChange}/>
+      <NoteDetail id={id} />
     </div>
   );
 }

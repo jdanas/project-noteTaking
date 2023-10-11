@@ -6,6 +6,9 @@ import { addAction, deleteAction, editAction } from "../../reducer/notes";
 // this component can be used to viewing, writting or editting notes
 export default function NoteDetail(PROPS) {
   const { NotesDispatch, notesList } = useContext(NotesContext);
+  useEffect(() => {
+    console.log(notesList);
+  }, [notesList]);
 
   return (
     <div class="detailContainer">
@@ -29,7 +32,14 @@ export default function NoteDetail(PROPS) {
             {PROPS.content}
           </textarea>
         </div>
-        <button class="editBtn">Save</button>
+        <button
+          class="editBtn"
+          onClick={() => {
+            console.log("edit button clicked");
+          }}
+        >
+          Save
+        </button>
       </div>
     </div>
   );
