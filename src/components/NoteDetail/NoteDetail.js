@@ -21,6 +21,7 @@ export default function NoteDetail(PROPS) {
     
   }, [PROPS?.id]);
 
+  
   return (
     <div class="detailContainer">
       <div class="detailHeader">
@@ -31,6 +32,7 @@ export default function NoteDetail(PROPS) {
             placeholder="Enter Note Title Here!"
             size="50"
             value={note?.title}
+            onChange={(e) => setNote(prev => ({ ...prev, title: e.target.value }))}
           />
         </div>
         <div class="dateContainer">
@@ -39,16 +41,16 @@ export default function NoteDetail(PROPS) {
       </div>
       <div class="noteDetails">
         <div class="noteContent">
-          <textarea placeholder="Enter your Note Here!" class="contentInput" value={note?.content} >
+          <textarea placeholder="Enter your Note Here!" class="contentInput" value={note?.content} 
+          
+  onChange={(e) => setNote(prev => ({ ...prev, content: e.target.value }))}>
             
           </textarea>
         </div>
         <button
           class="editBtn"
           onClick={() => {
-            const handleEdit = () => {
-              NotesDispatch(editAction(note));
-            };
+            NotesDispatch(note?.id ? editAction(note) : addAction(note));
           }}
         >
           Save

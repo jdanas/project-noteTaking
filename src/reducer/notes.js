@@ -24,9 +24,17 @@ export function notesReducer(state, action) {
     case FETCH:
       return state;
     case ADD:
+      state.push(action.payload);
       return state;
     case EDIT:
-      return state;
+      console.log('edit', state);
+      return state.map(note => {
+        if (note.id === action.payload.id) {
+          return action.payload;
+        }
+        return note;
+      });
+      
     case DELETE:
       return state;
     default:
@@ -50,17 +58,18 @@ export function fetchAction() {
 }
 
 export const addAction = (note) => {
+  note.id = Math.floor(Math.random() * 1000);
+  
   return {
     type: ADD,
-    payload: {},
+    payload: note,
   };
 };
 
-export function editAction() {
-  
+export function editAction(note) {
   return {
     type: EDIT,
-    payload: {},
+    payload: note,
   };
 }
 
