@@ -42,5 +42,8 @@ export default function NoteDetail(PROPS) {
         </button>
       </div>
     </div>
+
+    
+    
   );
 }
